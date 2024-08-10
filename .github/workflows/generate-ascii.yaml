@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  ascii_job:
+  build_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,3 +14,22 @@ jobs:
         run: |
          chmod u+x ./script.sh
          ./script.sh
+      - name: Sleep for 30 secons
+        run: sleep 30
+
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 10 secons
+        run: sleep 10
+
+      - name: Check file generated in the build stage
+        run: grep -i "dragon" dragon.txt
+
+  deploy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: read file
+        run: cat dragon.txt
+      - name: Deploy
+        run: echo "Deployment ongoing..."
