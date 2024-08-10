@@ -11,4 +11,6 @@ jobs:
       - name: List repo Files
         run: ls -larth
       - name: Executing shell script
-        run: ./script.sh
+        run: |
+         chmod u+x ./script.sh
+         ./script.sh
