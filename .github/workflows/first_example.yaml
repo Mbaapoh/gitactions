@@ -5,7 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: checkout repo
-          uses: actions/checkoutv4
+          uses: actions/checkout@v4
         - name: welcom message
           run: echo "My first github action"
         - name: List files in repo
